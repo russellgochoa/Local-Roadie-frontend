@@ -1,5 +1,12 @@
-import logo from './logo.svg'
 import './App.css'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { BASE_URL } from './globals'
+import axios from 'axios'
+
+import Home from './pages/Home'
+import Nav from './components/Nav'
+import About from './pages/About'
 
 function App() {
   return (
