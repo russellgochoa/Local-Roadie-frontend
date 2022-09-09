@@ -5,6 +5,8 @@ import { BASE_URL } from './globals'
 import axios from 'axios'
 
 import Home from './pages/Home'
+import TripForm from './components/TripForm'
+import EditTrip from './pages/EditTrip'
 import Nav from './components/Nav'
 import About from './pages/About'
 
@@ -22,7 +24,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Local Roadie
         </a>
       </header>
     </div>
