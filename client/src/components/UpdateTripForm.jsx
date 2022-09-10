@@ -1,17 +1,18 @@
-import { useState, useEffect } from "react"
-import { UpdateUser } from "../services/Authorize"
+import { useState, useNavigate, useEffect } from "react"
+import { UpdateTrip } from "../services/Authorize"
 import axios from "axios"
 import { BASE_URL } from "../globals"
 
-const UpdateTripForm = ({user}) => {
+const UpdateTripForm = ({trip}) => {
 
+  let navigate = useNavigate()
 
 const initialState = {
-  date: user.date,
-  pickupTime: user.pickupTime,
-  pickupLocation: user.pickupLocation,
-  destination: user.destination,
-  gear: user.gear,
+  date: trip.date,
+  pickupTime: trip.pickupTime,
+  pickupLocation: trip.pickupLocation,
+  destination: trip.destination,
+  gear: trip.gear,
   }
 
 
@@ -23,8 +24,8 @@ const handleChange = event => {
 
 const handleSubmit = async (e) => {
   e.preventDefault()
-  UpdateUser({
-    id: user.id,
+  UpdateTrip({
+    id: trip.id,
     ...formValues
   })
   navigate('/')
@@ -32,7 +33,7 @@ const handleSubmit = async (e) => {
 
 }
 
-return user ? (
+return trip ? (
   <div className="trip-form-container">
     <form className="trip-form form" onSubmit={handleSubmit}>
       <div className="grid">
