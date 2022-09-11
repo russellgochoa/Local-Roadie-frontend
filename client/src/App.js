@@ -33,28 +33,28 @@ function App() {
       ...tripFromState,
       [event.target.id]: event.target.value
     })
+  }
 
-    const handleTripSubmit = async (event) => {
-      event.preventDefault()
-      if (editing) {
-        await UpdateTrip(tripFromState)
-        setTripFormState(initialTripState)
-        let modifiedTrip = selectedTrip
-        navigate('/')
-        window.location.reload()
-      } else {
-        await CreateTrip({
-          date: tripFromState.date,
-          pickupTime: tripFromState.pickupTime,
-          pickupLocation: tripFromState.pickupLocation,
-          destination: tripFromState.destination,
-          gear: trip.gear
-        })
-        let modifiedTrip = selectedTrip
-        modifiedTrip.trip.push(tripFromState)
-        navigate('/')
-        window.location.reload()
-      }
+  const handleTripSubmit = async (event) => {
+    event.preventDefault()
+    if (editing) {
+      await UpdateTrip(tripFromState)
+      setTripFormState(initialTripState)
+      let modifiedTrip = selectedTrip
+      navigate('/')
+      window.location.reload()
+    } else {
+      await CreateTrip({
+        date: tripFromState.date,
+        pickupTime: tripFromState.pickupTime,
+        pickupLocation: tripFromState.pickupLocation,
+        destination: tripFromState.destination,
+        gear: tripFromState.gear
+      })
+      let modifiedTrip = selectedTrip
+      modifiedTrip.trip.push(tripFromState)
+      navigate('/')
+      window.location.reload()
     }
   }
 
@@ -65,9 +65,19 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Listings />} />
-          <Route path="listings/:id" element={<RecordDetails />} />
-          <Route path="/lists" element={<ListDetails />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/trips" element={<TripForm />} />
+          <Route
+            path="/trips/edit"
+            element={
+              <EditTrip
+                trip={trip}
+                tripFromState={tripFromState}
+                onChange={handleTripChange}
+                onSubmit={handleTripSubmit}
+              />
+            }
+          />
         </Routes>
       </main>
     </div>
