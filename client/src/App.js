@@ -15,6 +15,7 @@ function App() {
   const [trip] = useState([])
   const [selectedTrip, setSelectedTrip] = useState(null)
   const [editing, setEditing] = useState(false)
+  const [review, setTrip] = useState(null)
 
   let navigate = useNavigate()
 
