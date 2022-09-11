@@ -58,6 +58,19 @@ function App() {
     }
   }
 
+  const editTrip = (trip, index) => {
+    setEditing(true)
+    setTrip(trip)
+    setTripFormState(trip)
+    navigate('/trips/edit', { state: { index: index } })
+  }
+
+  const deleteTrip = async (trip_id) => {
+    await DestroyTrip(trip_id)
+    navigate('/')
+    window.location.reload()
+  }
+
   return (
     <div className="App">
       <header>
