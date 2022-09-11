@@ -65,6 +65,7 @@ function App() {
       </header>
       <main>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/trips" element={<TripForm />} />
           <Route
