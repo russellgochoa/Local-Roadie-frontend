@@ -62,14 +62,14 @@ function App() {
     <div className="App">
       <header>
         <Nav />
-        <main>
-          <Routes>
-            <Route path="/" element={<Listings />} />
-            <Route path="listings/:id" element={<RecordDetails />} />
-            <Route path="/lists" element={<ListDetails />} />
-          </Routes>
-        </main>
       </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Listings />} />
+          <Route path="listings/:id" element={<RecordDetails />} />
+          <Route path="/lists" element={<ListDetails />} />
+        </Routes>
+      </main>
     </div>
   )
 }
