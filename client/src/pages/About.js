@@ -1,7 +1,7 @@
 const About = () => {
   return (
     <div className="about-section">
-      <h2>How does Local Roadie work?</h2>
+      <h2>about local roadie</h2>
       <p className="about-blurb"></p>
     </div>
   )

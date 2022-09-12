@@ -21,29 +21,32 @@ const TripForm = ({trip, handleTripChange, handleTripSubmit}) => {
   // const handleChange = (event) => {
   //   setFormState({ ...formState, [event.target.id]: event.target.value })
   // }
-
-  return (trip) ? (
+  return (
+ 
 
   <div className="trip-form-container">
-  <h1 className='trip-form-title'>Book a Trip</h1>
-    <form onSubmit={handleTripSubmit}>
-      <label htmlFor="date">Date:</label>
+  <h1 className='trip-form-title'>book a trip</h1>
+    <form className='trip-form form' onSubmit={ handleTripSubmit }>
+      <label htmlFor="date">date  </label>
       <input type="string" id="date" name="date" onChange={handleTripChange} />
       <p></p>
-      <label htmlFor="pick-up-time">Pick Up Time:</label>
+      <label htmlFor="pick-up-time">pick Up time  </label>
       <input type="string" id="pick-up-time" name="pick-up-time" onChange={handleTripChange} />
       <p></p>
-      <label htmlFor="pick-up-location">Pick Up Location:</label>
+      <label htmlFor="pick-up-location">pick up location  </label>
       <input type="string" id="pick-up-location" name="pick-up-location" onChange={handleTripChange} />
       <p></p>
-      <label htmlFor="destination">Destination:</label>
+      <label htmlFor="destination">destination  </label>
       <input type="string" id="destination" name="destination" onChange={handleTripChange} />
-      <label htmlFor="gear">Gear:</label>
+      <p></p>
+      <label htmlFor="gear">gear  </label>
       <input type="text" id="gear" name="gear" onChange={handleTripChange} />
+      <p></p>
+      <button className="submit-button button">submit</button>
       <p></p>
     </form>
     </div>
-    ) : null
+    )
 
   }
 

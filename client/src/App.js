@@ -13,19 +13,38 @@ import Nav from './components/Nav'
 import About from './pages/About'
 
 function App() {
-  const [trip] = useState([])
+  const [trip, setTrip] = useState([])
+  const [trips, setTrips] = useState([])
   const [selectedTrip, setSelectedTrip] = useState(null)
   const [editing, setEditing] = useState(false)
-  const [review, setTrip] = useState(null)
+  const [vechicles, setVehicles] = useState([])
 
   let navigate = useNavigate()
 
+  const getTrips = async () => {
+    const res = await axios.get(`${BASE_URL}/trips`)
+    console.log(res)
+    setTrips(res.data)
+  }
+  useEffect(() => {
+    getTrips()
+  }, [])
+
+  const getVehicles = async () => {
+    const res = await axios.get(`${BASE_URL}/vehicles`)
+    console.log(res)
+    setVehicles(res.data)
+  }
+  useEffect(() => {
+    getVehicles()
+  }, [])
+
   const initialTripState = {
-    date: trip.date,
-    pickupTime: trip.pickupTime,
-    pickupLocation: trip.pickupLocation,
-    destination: trip.destination,
-    gear: trip.gear
+    date: '',
+    pickupTime: '',
+    pickupLocation: '',
+    destination: '',
+    gear: ''
   }
 
   const [tripFromState, setTripFormState] = useState(initialTripState)
@@ -33,7 +52,8 @@ function App() {
   const handleTripChange = (event) => {
     setTripFormState({
       ...tripFromState,
-      [event.target.id]: event.target.value
+      [event.target.id]: event.target.value,
+      trip_id: selectedTrip.id
     })
   }
 
@@ -81,8 +101,21 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route
+            path="/trips/:id"
+            element={
+              <TripDetails
+                selectedTrip={selectedTrip}
+                handleTripChange={handleTripChange}
+                handleTripSubmit={handleTripSubmit}
+                tripFromState={tripFromState}
+                deleteTrip={deleteTrip}
+                editTrip={editTrip}
+              />
+            }
+          />
           <Route path="/about" element={<About />} />
-          <Route path="/trips" element={<TripForm />} />
+          <Route path="/" element={<TripForm />} />
           <Route
             path="/trips/edit"
             element={
