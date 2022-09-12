@@ -19,6 +19,10 @@ return (
         <h1 className='nav-title'>Local Roadie</h1>
       </div>
       </NavLink>
+      <div className="nav-right-links">
+        <NavLink to="/" className='nav-link home'>Home</NavLink>
+        {publicOptions}
+      </div>
       </nav>
     )
     }
