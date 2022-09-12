@@ -8,6 +8,7 @@ import axios from 'axios'
 import Home from './pages/Home'
 import TripForm from './components/TripForm'
 import EditTrip from './pages/EditTrip'
+import TripDetails from './pages/TripDetails'
 import Nav from './components/Nav'
 import About from './pages/About'
 
