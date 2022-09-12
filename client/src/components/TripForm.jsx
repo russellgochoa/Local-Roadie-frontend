@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 
 const TripForm = ({trip, handleTripChange, handleTripSubmit}) => {
 
@@ -30,7 +31,7 @@ const TripForm = ({trip, handleTripChange, handleTripSubmit}) => {
       <label htmlFor="date">date  </label>
       <input type="string" id="date" name="date" onChange={handleTripChange} />
       <p></p>
-      <label htmlFor="pick-up-time">pick Up time  </label>
+      <label htmlFor="pick-up-time">pick up time  </label>
       <input type="string" id="pick-up-time" name="pick-up-time" onChange={handleTripChange} />
       <p></p>
       <label htmlFor="pick-up-location">pick up location  </label>
@@ -42,7 +43,7 @@ const TripForm = ({trip, handleTripChange, handleTripSubmit}) => {
       <label htmlFor="gear">gear  </label>
       <input type="text" id="gear" name="gear" onChange={handleTripChange} />
       <p></p>
-      <button className="submit-button button">submit</button>
+      <button className="submit-button button">choose a vehicle</button>
       <p></p>
     </form>
     </div>

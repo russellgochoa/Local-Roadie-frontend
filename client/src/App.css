@@ -29,7 +29,7 @@ a:hover.nav-logo-link {
 }
 
 .nav-link {
-  margin-right: 15px;
+  margin-right: 20px;
   align-self: center;
   text-align: right;
 }
@@ -48,7 +48,11 @@ a:hover.nav-logo-link {
 }
 
 .form {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+ 
 }
 
 
