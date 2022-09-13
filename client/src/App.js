@@ -60,16 +60,16 @@ function App() {
 
   const [tripFromState, setTripFormState] = useState(initialTripState)
 
-  const handleTripChange = (event) => {
+  const handleTripChange = (e) => {
     setTripFormState({
       ...tripFromState,
-      [event.target.id]: event.target.value,
+      [e.target.id]: e.target.value,
       trip_id: selectedTrip.id
     })
   }
 
-  const handleTripSubmit = async (event) => {
-    event.preventDefault()
+  const handleTripSubmit = async (e) => {
+    e.preventDefault()
     if (editing) {
       await UpdateTrip(tripFromState)
       setTripFormState(initialTripState)
@@ -126,7 +126,7 @@ function App() {
             }
           />
           <Route path="/about" element={<About />} />
-          <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/vehicles" element={<Vehicles vehicles={vehicles} />} />
           <Route path="/" element={<TripForm />} />
           <Route
             path="/trips/edit"

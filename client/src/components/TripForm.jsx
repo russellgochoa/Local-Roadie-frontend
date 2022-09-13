@@ -4,26 +4,7 @@ import { useNavigate } from "react-router-dom"
 const TripForm = ({trip, handleTripChange, handleTripSubmit}) => {
 
   let navigate = useNavigate()
-  // const [trip] = useState([])
-  // const initialState = {
-  //   date: trip.date,
-  //   pickupTime: trip.pickupTime,
-  //   pickupLocation: trip.pickupLocation,
-  //   destination: trip.destination,
-  //   gear: trip.gear,
-  // }
-  // const [formState, setFormState] = useState(initialState)
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault()
-  //   let res = await axios.post('http://localhost:3001/trips', formState)
-  //   console.log(res)
-  //   setFormState(initialState)
-  // }
-
-  // const handleChange = (event) => {
-  //   setFormState({ ...formState, [event.target.id]: event.target.value })
-  // }
   return (
  
 
