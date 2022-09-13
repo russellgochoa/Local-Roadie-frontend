@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 const TripForm = ({trip, handleTripChange, handleTripSubmit}) => {
 
+  let navigate = useNavigate()
   // const [trip] = useState([])
   // const initialState = {
   //   date: trip.date,
@@ -44,11 +45,11 @@ const TripForm = ({trip, handleTripChange, handleTripSubmit}) => {
       <label htmlFor="gear">gear  </label>
       <input type="text" id="gear" name="gear" onChange={handleTripChange} />
       <p></p>
-      <button className="submit-button button">choose a vehicle</button>
+      <button className="submit-button button" onClick={() => navigate('/vehicles')}>choose a vehicle</button>
       <p></p>
     </form>
     </div>
-    )
+    ) 
 
   }
 

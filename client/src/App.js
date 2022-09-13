@@ -18,7 +18,8 @@ function App() {
   const [trips, setTrips] = useState([])
   const [selectedTrip, setSelectedTrip] = useState(null)
   const [editing, setEditing] = useState(false)
-  const [vechicles, setVehicles] = useState([])
+  const [vehicles, setVehicles] = useState([])
+  const [users, setUsers] = useState([])
 
   let navigate = useNavigate()
 
@@ -38,6 +39,15 @@ function App() {
   }
   useEffect(() => {
     getVehicles()
+  }, [])
+
+  const getUsers = async () => {
+    const res = await axios.get(`${BASE_URL}/users`)
+    // console.log(res)
+    setUsers(res.data)
+  }
+  useEffect(() => {
+    getUsers()
   }, [])
 
   const initialTripState = {
@@ -64,7 +74,7 @@ function App() {
       await UpdateTrip(tripFromState)
       setTripFormState(initialTripState)
       let modifiedTrip = selectedTrip
-      navigate('/')
+      navigate('/:trip_id')
       window.location.reload()
     } else {
       await CreateTrip({
@@ -76,7 +86,7 @@ function App() {
       })
       let modifiedTrip = selectedTrip
       modifiedTrip.trip.push(tripFromState)
-      navigate('/')
+      navigate('/vehicles')
       window.location.reload()
     }
   }
@@ -85,7 +95,7 @@ function App() {
     setEditing(true)
     setTrip(trip)
     setTripFormState(trip)
-    navigate('/trips/edit', { state: { index: index } })
+    navigate('/:trip_id', { state: { index: index } })
   }
 
   const deleteTrip = async (trip_id) => {
@@ -116,7 +126,7 @@ function App() {
             }
           />
           <Route path="/about" element={<About />} />
-          <Route path="/vechicles" element={<Vehicles />} />
+          <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/" element={<TripForm />} />
           <Route
             path="/trips/edit"
