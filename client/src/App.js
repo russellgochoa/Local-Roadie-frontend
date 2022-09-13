@@ -11,6 +11,7 @@ import EditTrip from './pages/EditTrip'
 import TripDetails from './pages/TripDetails'
 import Nav from './components/Nav'
 import About from './pages/About'
+import Vehicles from './components/Vehicles'
 
 function App() {
   const [trip, setTrip] = useState([])
@@ -23,7 +24,7 @@ function App() {
 
   const getTrips = async () => {
     const res = await axios.get(`${BASE_URL}/trips`)
-    console.log(res)
+    // console.log(res)
     setTrips(res.data)
   }
   useEffect(() => {
@@ -32,7 +33,7 @@ function App() {
 
   const getVehicles = async () => {
     const res = await axios.get(`${BASE_URL}/vehicles`)
-    console.log(res)
+    // console.log(res)
     setVehicles(res.data)
   }
   useEffect(() => {
@@ -115,6 +116,7 @@ function App() {
             }
           />
           <Route path="/about" element={<About />} />
+          <Route path="/vechicles" element={<Vehicles />} />
           <Route path="/" element={<TripForm />} />
           <Route
             path="/trips/edit"

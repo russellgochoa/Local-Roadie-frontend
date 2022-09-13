@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
+
 const TripForm = ({trip, handleTripChange, handleTripSubmit}) => {
 
   // const [trip] = useState([])

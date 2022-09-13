@@ -5,7 +5,7 @@ const Nav = () => {
   const publicOptions = (
       <div>
         <NavLink to="/about" className='nav-link about'>about</NavLink>
-        {/* <NavLink to="/login" className='nav-link login'>Login</NavLink> */}
+        <NavLink to="/login" className='nav-link login'>login</NavLink>
       </div>
     );
 
