@@ -14,7 +14,7 @@ const Vehicles = (props) => {
     <div className="vehicle-grid">
       {
       props.vehicles.map((vehicle) => (
-        <div className="vehicle-card" onClick={() => addVehicle(vehicle)} key={vehicle.id}>
+        <div className="vehicle-card"  key={vehicle.id}>
           <img style={{ display: 'block' }} src={vehicle.img} alt={vehicle.type} />
           <h3>{vehicle.type}</h3>
           
@@ -27,5 +27,6 @@ const Vehicles = (props) => {
   )
 }
 
+// onClick={() => addVehicle(vehicle)}
 
 export default Vehicles
