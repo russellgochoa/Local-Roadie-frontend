@@ -73,26 +73,8 @@ function App() {
     e.preventDefault()
     const res = await axios.post(`${BASE_URL}/trips`, tripFromState)
     console.log('fired', res)
-    // setTripFormState(initialTripState)
-    // if (editing) {
-    //   await CreateTrip(tripFromState)
-    //   setTripFormState(initialTripState)
-    //   let modifiedTrip = selectedTrip
-    //   navigate('/trips)
-    //   window.location.reload()
-    // } else {
-    //   await UpdateTrip({
-    //     date: tripFromState.date,
-    //     pickupTime: tripFromState.pickupTime,
-    //     pickupLocation: tripFromState.pickupLocation,
-    //     destination: tripFromState.destination,
-    //     gear: tripFromState.gear
-    //   })
-    //   let modifiedTrip = selectedTrip
-    //   modifiedTrip.trip.push(tripFromState)
-    //   navigate('/trips')
+
     window.location.reload()
-    // }
   }
 
   const editTrip = (trip, index) => {
@@ -124,7 +106,6 @@ function App() {
               />
             }
           />
-          {/* <Route path="/trips" element={<Trips />} /> */}
           <Route
             path="/trips"
             element={

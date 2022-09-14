@@ -46,7 +46,7 @@ return trip ? (
           name="date"
           date="date"
           type="string"
-          placeholder="Date"
+          placeholder="date"
           value={formValues.date}
           required
           />
@@ -57,7 +57,7 @@ return trip ? (
           onChange={handleChange}
           name="pickupTime"
           type="string"
-          placeholder="Pick Up Time"
+          placeholder="pick up time"
           value={formValues.pickupTime}
           required
           />
@@ -68,7 +68,7 @@ return trip ? (
           onChange={handleChange}
           name="pickupLocation"
           type="string"
-          placeholder="Pick Up Location"
+          placeholder="pick up location"
           value={formValues.pickupLocation}
           required
           />
@@ -79,7 +79,7 @@ return trip ? (
           onChange={handleChange}
           name="destination"
           type="string"
-          placeholder="Destination"
+          placeholder="destination"
           value={formValues.destination}
           required
           />
@@ -90,7 +90,7 @@ return trip ? (
           onChange={handleChange}
           name="gear"
           type="string"
-          placeholder="Gear"
+          placeholder="gear"
           value={formValues.gear}
           required
           />

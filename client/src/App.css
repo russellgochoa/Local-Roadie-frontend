@@ -73,10 +73,11 @@ a:hover.nav-logo-link {
 }
 
 .vehicle-grid {
+  font-family: 'Barlow Condensed';
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  font-family: 'Barlow Condensed';
+  
 }
 
 .vehicle-card {

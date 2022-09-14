@@ -1,23 +1,21 @@
 import { useNavigate } from "react-router-dom"
 
-import { Link } from 'react-router-dom'
-
 
 const Vehicles = (props) => {
   let navigate = useNavigate()
  
-  const addVehicle = (vehicle) => {
-    navigate(`${vehicle.id}`)
-  }
+  // const addVehicle = (vehicle) => {
+  //   navigate(`${vehicle.id}`)
+  // }
 
   return (
     <div className="vehicle-grid">
       {
       props.vehicles.map((vehicle) => (
         <div className="vehicle-card"  key={vehicle.id}>
-          <img style={{ display: 'block' }} src={vehicle.img} alt={vehicle.type} />
-          <h3>{vehicle.type}</h3>
-          
+          <img style={{ display: 'block' }} src="https://i.imgur.com/oA2duRu.jpg" alt={vehicle.type} />
+          <h4>{vehicle.type}</h4>
+          <h4>{vehicle.make}</h4> 
         </div>
         
       ))}
@@ -27,6 +25,6 @@ const Vehicles = (props) => {
   )
 }
 
-// onClick={() => addVehicle(vehicle)}
+
 
 export default Vehicles

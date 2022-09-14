@@ -11,19 +11,19 @@ const TripForm = ({setTrip, handleTripChange, handleTripSubmit}) => {
   <h1 className='trip-form-title'>book a trip</h1>
     <form className='trip-form form' onSubmit={e => handleTripSubmit(e) }>
       <label htmlFor="date">date  </label>
-      <input type="string" id="date" name="date" onChange={handleTripChange} />
+      <input type="string" id="date" name="date" onChange={handleTripChange} placeholder="date" />
       <p></p>
       <label htmlFor="pick-up-time">pick up time  </label>
-      <input type="string" id="pick-up-time" name="pickupTime" onChange={handleTripChange} />
+      <input type="string" id="pick-up-time" name="pickupTime" onChange={handleTripChange} placeholder="pick up time" />
       <p></p>
       <label htmlFor="pick-up-location">pick up location  </label>
-      <input type="string" id="pick-up-location" name="pickupLocation" onChange={handleTripChange} />
+      <input type="string" id="pick-up-location" name="pickupLocation" onChange={handleTripChange} placeholder="pick up location" />
       <p></p>
       <label htmlFor="destination">destination  </label>
-      <input type="string" id="destination" name="destination" onChange={handleTripChange} />
+      <input type="string" id="destination" name="destination" onChange={handleTripChange} placeholder="destination" />
       <p></p>
       <label htmlFor="gear">gear  </label>
-      <input type="text" id="gear" name="gear" onChange={handleTripChange} />
+      <input type="text" id="gear" name="gear" onChange={handleTripChange} placeholder="gear" />
       <p></p>
       <label htmlFor="vehicle">transport  </label>
       <select name="vehicleId" id="vehicle-options" onChange={handleTripChange}>
