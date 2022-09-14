@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const Vehicles = (props) => {
   let navigate = useNavigate()
  
-  const showVehicle = (vehicle) => {
+  const addVehicle = (vehicle) => {
     navigate(`${vehicle.id}`)
   }
 
@@ -14,13 +14,14 @@ const Vehicles = (props) => {
     <div className="vehicle-grid">
       {
       props.vehicles.map((vehicle) => (
-        <div className="vehicle-card" onClick={() => showVehicle(vehicle)} key={vehicle.id}>
+        <div className="vehicle-card" onClick={() => addVehicle(vehicle)} key={vehicle.id}>
           <img style={{ display: 'block' }} src={vehicle.img} alt={vehicle.type} />
           <h3>{vehicle.type}</h3>
           
         </div>
+        
       ))}
-      <Link to ="/:trip_id"><button>confirm trip</button></Link>
+      <Link to ="/trips/:id"><button className="submit-button button">confirm trip</button></Link>
     </div>
     
   )

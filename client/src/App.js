@@ -55,47 +55,51 @@ function App() {
     pickupTime: '',
     pickupLocation: '',
     destination: '',
-    gear: ''
+    gear: '',
+    userId: 4
   }
 
-  const [tripFromState, setTripFormState] = useState(initialTripState)
+  const [tripFromState, setTripFormState] = useState()
 
   const handleTripChange = (e) => {
+    console.log('handleTrip', e.target.name)
     setTripFormState({
       ...tripFromState,
-      [e.target.id]: e.target.value,
-      trip_id: selectedTrip.id
+      [e.target.name]: e.target.value
     })
   }
 
   const handleTripSubmit = async (e) => {
     e.preventDefault()
-    if (editing) {
-      await UpdateTrip(tripFromState)
-      setTripFormState(initialTripState)
-      let modifiedTrip = selectedTrip
-      navigate('/:trip_id')
-      window.location.reload()
-    } else {
-      await CreateTrip({
-        date: tripFromState.date,
-        pickupTime: tripFromState.pickupTime,
-        pickupLocation: tripFromState.pickupLocation,
-        destination: tripFromState.destination,
-        gear: tripFromState.gear
-      })
-      let modifiedTrip = selectedTrip
-      modifiedTrip.trip.push(tripFromState)
-      navigate('/vehicles')
-      window.location.reload()
-    }
+    // const res = await axios.post(`${BASE_URL}/trips`, tripFromState)
+    console.log('fired')
+    // setTripFormState(initialTripState)
+    // if (editing) {
+    //   await CreateTrip(tripFromState)
+    //   setTripFormState(initialTripState)
+    //   let modifiedTrip = selectedTrip
+    //   navigate('/trips/:id')
+    //   window.location.reload()
+    // } else {
+    //   await UpdateTrip({
+    //     date: tripFromState.date,
+    //     pickupTime: tripFromState.pickupTime,
+    //     pickupLocation: tripFromState.pickupLocation,
+    //     destination: tripFromState.destination,
+    //     gear: tripFromState.gear
+    //   })
+    //   let modifiedTrip = selectedTrip
+    //   modifiedTrip.trip.push(tripFromState)
+    //   navigate('/vehicles')
+    //   window.location.reload()
+    // }
   }
 
   const editTrip = (trip, index) => {
     setEditing(true)
     setTrip(trip)
     setTripFormState(trip)
-    navigate('/:trip_id', { state: { index: index } })
+    navigate('/trips/:id', { state: { index: index } })
   }
 
   const deleteTrip = async (trip_id) => {
@@ -111,7 +115,15 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                handleTripChange={handleTripChange}
+                handleTripSubmit={handleTripSubmit}
+              />
+            }
+          />
           <Route
             path="/trips/:id"
             element={
@@ -129,7 +141,7 @@ function App() {
           <Route path="/vehicles" element={<Vehicles vehicles={vehicles} />} />
           <Route path="/" element={<TripForm />} />
           <Route
-            path="/trips/edit"
+            path="/trips/:id"
             element={
               <EditTrip
                 trip={trip}

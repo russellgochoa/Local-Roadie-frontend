@@ -15,7 +15,7 @@ export default [
     model: 'F-150',
     capacity: '52 cubic ft.',
     price: '$10',
-    img: ''
+    img: 'https://i.imgur.com/c5WtyzZ.jpg'
   },
   {
     id: 3,
