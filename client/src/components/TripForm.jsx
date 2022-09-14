@@ -25,6 +25,7 @@ const TripForm = ({setTrip, handleTripChange, handleTripSubmit}) => {
       <label htmlFor="gear">gear  </label>
       <input type="text" id="gear" name="gear" onChange={handleTripChange} />
       <p></p>
+      <label htmlFor="vehicle">transport  </label>
       <select name="vehicleId" id="vehicle-options" onChange={handleTripChange}>
         <option value="default">select vehicle</option>
         <option value="2">truck</option>
@@ -37,7 +38,7 @@ const TripForm = ({setTrip, handleTripChange, handleTripSubmit}) => {
     </div>
     ) 
 
-    // onClick={() => navigate('/vehicles')}
+    // onClick={() => navigate('/trips')}
 
   }
 

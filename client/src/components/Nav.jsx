@@ -4,8 +4,12 @@ import { NavLink } from 'react-router-dom'
 const Nav = () => {
   const publicOptions = (
       <div>
+        <NavLink to="/trips" className='nav-link trips'>trips</NavLink>
+        <NavLink to="/vehicles" className='nav-link vehicles'>vehicles</NavLink>
         <NavLink to="/about" className='nav-link about'>about</NavLink>
         <NavLink to="/login" className='nav-link login'>login</NavLink>
+        
+        
       </div>
     );
 

@@ -2,10 +2,12 @@ import { useState, useNavigate, useEffect } from "react"
 import { UpdateTrip } from "../services/Authorize"
 import axios from "axios"
 import { BASE_URL } from "../globals"
+import { useParams } from "react-router-dom"
 
 const UpdateTripForm = ({trip}) => {
 
-  let navigate = useNavigate()
+// let navigate = useNavigate()
+let {trip_id} = useParams()
 
 const initialState = {
   date: trip.date,
@@ -25,10 +27,10 @@ const handleChange = event => {
 const handleSubmit = async (e) => {
   e.preventDefault()
   UpdateTrip({
-    id: trip.id,
+    id: trip_id,
     ...formValues
   })
-  navigate('/')
+  // navigate('/trips')
   window.location.reload()
 
 }
@@ -38,9 +40,10 @@ return trip ? (
     <form className="trip-form form" onSubmit={handleSubmit}>
       <div className="grid">
         <div className="date">
-          <div className="date-label-container"><label htmlFor='date'>Date</label></div>
+          <div className="date-label-container"><label htmlFor='date'>date</label></div>
           <input
           onChange={handleChange}
+          name="date"
           date="date"
           type="string"
           placeholder="Date"
@@ -49,10 +52,10 @@ return trip ? (
           />
         </div>
         <div className="pickupTime">
-          <div className="pickup-time-label-container"><label htmlFor='pickupTime'>Pick Up Time</label></div>
+          <div className="pickup-time-label-container"><label htmlFor='pickupTime'>pick Up time</label></div>
           <input
           onChange={handleChange}
-          date="pickupTime"
+          name="pickupTime"
           type="string"
           placeholder="Pick Up Time"
           value={formValues.pickupTime}
@@ -60,10 +63,10 @@ return trip ? (
           />
         </div>
         <div className="pickupLocation">
-          <div className="pickup-location-label-container"><label htmlFor='pickupLocation'>Pick Up Time</label></div>
+          <div className="pickup-location-label-container"><label htmlFor='pickupLocation'>pick up time</label></div>
           <input
           onChange={handleChange}
-          date="pickupLocation"
+          name="pickupLocation"
           type="string"
           placeholder="Pick Up Location"
           value={formValues.pickupLocation}
@@ -71,10 +74,10 @@ return trip ? (
           />
         </div>
         <div className="destination">
-          <div className="destination-label-container"><label htmlFor='destination'>Destination</label></div>
+          <div className="destination-label-container"><label htmlFor='destination'>destination</label></div>
           <input
           onChange={handleChange}
-          date="destination"
+          name="destination"
           type="string"
           placeholder="Destination"
           value={formValues.destination}
@@ -82,10 +85,10 @@ return trip ? (
           />
         </div>
         <div className="gear">
-          <div className="gear-label-container"><label htmlFor='gear'>Gear</label></div>
+          <div className="gear-label-container"><label htmlFor='gear'>gear</label></div>
           <input
           onChange={handleChange}
-          date="gear"
+          name="gear"
           type="string"
           placeholder="Gear"
           value={formValues.gear}
@@ -98,7 +101,7 @@ return trip ? (
       <div className="submit-button-container">
         <button className="submit-button button"
         >
-          Submit
+          submit
         </button>
       </div>
     </form>

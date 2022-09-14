@@ -59,7 +59,7 @@ function App() {
     userId: 4
   }
 
-  const [tripFromState, setTripFormState] = useState()
+  const [tripFromState, setTripFormState] = useState(initialTripState)
 
   const handleTripChange = (e) => {
     console.log('handleTrip', e.target.name)
@@ -71,14 +71,14 @@ function App() {
 
   const handleTripSubmit = async (e) => {
     e.preventDefault()
-    // const res = await axios.post(`${BASE_URL}/trips`, tripFromState)
-    console.log('fired')
+    const res = await axios.post(`${BASE_URL}/trips`, tripFromState)
+    console.log('fired', res)
     // setTripFormState(initialTripState)
     // if (editing) {
     //   await CreateTrip(tripFromState)
     //   setTripFormState(initialTripState)
     //   let modifiedTrip = selectedTrip
-    //   navigate('/trips/:id')
+    //   navigate('/trips)
     //   window.location.reload()
     // } else {
     //   await UpdateTrip({
@@ -90,8 +90,8 @@ function App() {
     //   })
     //   let modifiedTrip = selectedTrip
     //   modifiedTrip.trip.push(tripFromState)
-    //   navigate('/vehicles')
-    //   window.location.reload()
+    //   navigate('/trips')
+    window.location.reload()
     // }
   }
 
@@ -99,7 +99,7 @@ function App() {
     setEditing(true)
     setTrip(trip)
     setTripFormState(trip)
-    navigate('/trips/:id', { state: { index: index } })
+    navigate(`/trips/${trip.id}`, { state: { index: index } })
   }
 
   const deleteTrip = async (trip_id) => {
@@ -124,11 +124,12 @@ function App() {
               />
             }
           />
+          {/* <Route path="/trips" element={<Trips />} /> */}
           <Route
-            path="/trips/:id"
+            path="/trips"
             element={
               <TripDetails
-                selectedTrip={selectedTrip}
+                trips={trips}
                 handleTripChange={handleTripChange}
                 handleTripSubmit={handleTripSubmit}
                 tripFromState={tripFromState}
@@ -141,7 +142,7 @@ function App() {
           <Route path="/vehicles" element={<Vehicles vehicles={vehicles} />} />
           <Route path="/" element={<TripForm />} />
           <Route
-            path="/trips/:id"
+            path="/trips/:trip_id"
             element={
               <EditTrip
                 trip={trip}

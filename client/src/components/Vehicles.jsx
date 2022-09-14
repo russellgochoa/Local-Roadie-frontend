@@ -21,7 +21,7 @@ const Vehicles = (props) => {
         </div>
         
       ))}
-      <Link to ="/trips/:id"><button className="submit-button button">confirm trip</button></Link>
+      {/* <Link to ="/trips/:id"><button className="submit-button button">confirm trip</button></Link> */}
     </div>
     
   )
